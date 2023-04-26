@@ -48,54 +48,49 @@ fun App() {
         mutableStateOf(0)
     }
 
-    Surface(
-        modifier = Modifier.fillMaxSize(),
-        color = MaterialTheme.colorScheme.background
-    ) {
-        when (currentStep) {
-            1 -> {
-                TextAndImage(
-                    stringResourceId = R.string.tap_the_lemon_tree,
-                    imageResourceId = R.drawable.lemon_tree,
-                    contentDescriptionId = R.string.desc_lemon_tree,
-                    clickAction = {
-                        currentStep = 2
-                        squeezeCount = (2..4).random()
-                    })
-            }
+    when (currentStep) {
+        1 -> {
+            TextAndImage(
+                stringResourceId = R.string.tap_the_lemon_tree,
+                imageResourceId = R.drawable.lemon_tree,
+                contentDescriptionId = R.string.desc_lemon_tree,
+                clickAction = {
+                    currentStep = 2
+                    squeezeCount = (2..4).random()
+                })
+        }
 
-            2 -> {
-                TextAndImage(
-                    stringResourceId = R.string.tap_the_lemon,
-                    imageResourceId = R.drawable.lemon_squeeze,
-                    contentDescriptionId = R.string.desc_lemon,
-                    clickAction = {
-                        squeezeCount--
-                        if (squeezeCount == 0) {
-                            currentStep = 3
-                        }
-                    })
-            }
+        2 -> {
+            TextAndImage(
+                stringResourceId = R.string.tap_the_lemon,
+                imageResourceId = R.drawable.lemon_squeeze,
+                contentDescriptionId = R.string.desc_lemon,
+                clickAction = {
+                    squeezeCount--
+                    if (squeezeCount == 0) {
+                        currentStep = 3
+                    }
+                })
+        }
 
-            3 -> {
-                TextAndImage(
-                    stringResourceId = R.string.tap_the_glass,
-                    imageResourceId = R.drawable.lemon_drink,
-                    contentDescriptionId = R.string.desc_glass_of_lemonade,
-                    clickAction = {
-                        currentStep = 4
-                    })
-            }
+        3 -> {
+            TextAndImage(
+                stringResourceId = R.string.tap_the_glass,
+                imageResourceId = R.drawable.lemon_drink,
+                contentDescriptionId = R.string.desc_glass_of_lemonade,
+                clickAction = {
+                    currentStep = 4
+                })
+        }
 
-            else -> {
-                TextAndImage(
-                    stringResourceId = R.string.tap_the_empty_glass,
-                    imageResourceId = R.drawable.lemon_restart,
-                    contentDescriptionId = R.string.desc_empty_glass,
-                    clickAction = {
-                        currentStep = 1
-                    })
-            }
+        else -> {
+            TextAndImage(
+                stringResourceId = R.string.tap_the_empty_glass,
+                imageResourceId = R.drawable.lemon_restart,
+                contentDescriptionId = R.string.desc_empty_glass,
+                clickAction = {
+                    currentStep = 1
+                })
         }
     }
 }
